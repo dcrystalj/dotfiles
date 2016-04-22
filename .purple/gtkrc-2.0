@@ -1,0 +1,38 @@
+# This file automatically written by the Pidgin GTK+ Theme Control plugin.
+# Any changes to this file will be overwritten by the plugin when told to
+# write the settings again.
+# The FAQ (http://developer.pidgin.im/wiki/FAQ) contains some further examples
+# of possible pidgin gtkrc settings.
+gtk-font-name = "Calibri 10"
+style "purplerc_style"
+{
+    GtkIMHtml::hyperlink-color = "#7B9DFD"
+    GtkIMHtml::hyperlink-visited-color = "#5F85FF"
+    GtkIMHtml::send-name-color = "#416DFF"
+    GtkIMHtml::receive-name-color = "#416DFF"
+    GtkIMHtml::highlight-name-color = "#FF8383"
+    GtkIMHtml::action-name-color = "#CEFFE8"
+    GtkIMHtml::typing-notification-color = "#FFFFFF"
+
+    GtkScrollbar::activate-slider      = 1
+    GtkScrollbar::trough-border        = 0
+    GtkScrollbar::slider-width         = 13
+    GtkScrollbar::min-slider-length    = 31
+
+
+    base[NORMAL] = "#21001C"
+    text[NORMAL] = "#ADEDC1"
+
+}
+widget_class "*" style "purplerc_style"
+
+
+
+    # GtkScrollbar::activate-slider      = 1
+    # GtkScrollbar::trough-border        = 0
+    # GtkScrollbar::slider-width         = 13
+    # GtkScrollbar::min-slider-length    = 31
+
+
+    # base[NORMAL] = "#23001C"
+    # text[NORMAL] = "#ADEDC1"
