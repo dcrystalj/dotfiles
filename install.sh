@@ -1,4 +1,5 @@
 sudo apt-get -y install diodon   # clipboard
+sudo apt-get -y install git
 sudo apt-get -y install redshift # flux for linux
 sudo apt-get -y install xclip    # allows pipe to xclip
 sudo apt-get -y install gcp      # copy with progress
@@ -9,7 +10,9 @@ sudo apt-get -y install arp-scan
 sudo apt-get -y install mpv
 sudo apt-get -y install pidgin
 
-
+#git
+git config --global user.name "dcrystalj"
+git config --global push.default simple
 
 ####DOCKER
 sudo usermod -aG docker `whoami`
