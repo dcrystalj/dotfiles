@@ -1,0 +1,78 @@
+"*":
+  core:
+    disabledPackages: [
+      "quick-schedule"
+      "composer-templates"
+      "composer-translate"
+      "message-view-on-github"
+      "github-contact-card"
+      "send-later"
+      "link-tracking"
+    ]
+    disabledPackagesInitialized: true
+    workspace:
+      mode: "split"
+      hiddenLocations:
+        MessageListSidebar:
+          id: "MessageListSidebar"
+          Toolbar:
+            id: "MessageListSidebar:Toolbar"
+      interfaceZoom: 1.2
+      systemTray: false
+    reading:
+      markAsReadDelay: 0
+    attachments:
+      downloadPolicy: "on-receive"
+    themes: [
+      "ui-light"
+      "ui-dark"
+    ]
+  updateIdentity: "75e15d5b-c3e3-4555-94fc-805992b8057e"
+  env: "production"
+  nylas:
+    accounts: [
+      {
+        client_id: "local-4d6909bf-7f5e"
+        server_id: "3fk9o8eqa5h27yjdzi1k06x46"
+        object: "account"
+        account_id: "3fk9o8eqa5h27yjdzi1k06x46"
+        metadata: []
+        name: "Tomaz Tomazic"
+        provider: "custom"
+        email_address: "tomazic@live.com"
+        organization_unit: "folder"
+        label: "tomazic@live.com"
+        aliases: [
+          "Tomaz Tomazic <tomaz.tomazic@live.com>"
+        ]
+        sync_state: "running"
+        id: "3fk9o8eqa5h27yjdzi1k06x46"
+      }
+      {
+        client_id: "local-77da5ae9-e717"
+        server_id: "5lo44jjrky38zdkq1juojpwvn"
+        object: "account"
+        account_id: "5lo44jjrky38zdkq1juojpwvn"
+        metadata: []
+        name: "Crystal Sergeant"
+        provider: "gmail"
+        email_address: "dcrystalj@gmail.com"
+        organization_unit: "label"
+        label: "dcrystalj@gmail.com"
+        aliases: []
+        sync_state: "running"
+        id: "5lo44jjrky38zdkq1juojpwvn"
+      }
+    ]
+    "5lo44jjrky38zdkq1juojpwvn":
+      cursor: "31hohrrjt3pi6hkwm53yfld7e"
+    djnzsli5yoan7tq2046owe1ux:
+      cursor: "72852964wl4blsafldf1kh1ov"
+    "3fk9o8eqa5h27yjdzi1k06x46":
+      cursor: "afjurfq62e081d19iih5ue6cj"
+    "account-3fk9o8eqa5h27yjdzi1k06x46":
+      signature: "Lp,&nbsp;<div>Tomaz</div>"
+    threadCountsValid: true
+    accountsVersion: 10
+    "account-5lo44jjrky38zdkq1juojpwvn":
+      signature: ""

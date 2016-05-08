@@ -6,6 +6,9 @@ sudo apt-get -y install zsh      # copy with progress
 sudo apt-get -y install vim
 sudo apt-get -y install powerline
 sudo apt-get -y install arp-scan
+sudo apt-get -y install mpv
+sudo apt-get -y install pidgin
+
 
 
 ####DOCKER
@@ -35,10 +38,39 @@ echo "let g:airline_powerline_fonts=1" >> ~/.vimrc.before.local
 cd ~/git && git clone https://github.com/vim-airline/vim-airline-themes
 cp ~/git/vim-airline-themes/* ~/.vim
 echo "let g:airline_theme='dark'" >> ~/.vimrc.local
+cp .vimrc.bundles.local ~/
+cp .vimrc.local ~/
+vim -c ':PluginInstall'
 
 
 #chromium
 cd ~/git && git clone https://github.com/scheib/chromium-latest-linux
 ~/git/chromium-latest-linux/update-and-run.sh
 
+#sublime
+cd ~/Downloads
+wget https://download.sublimetext.com/sublime-text_build-3103_amd64.deb
+gnome-open sublime-text_build-3103_amd64.deb
+
+#skype
+wget http://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
+gnome-open skype-ubuntu-precise_4.3.0.37-1_i386.deb
+
+#atom
+wget https://atom.io/download/deb
+sudo dpkg -i deb
+sudo apt-get install -f
+cp .atom/config.cson ~/.atom
+
+#nylas
+wget https://edgehill.nylas.com/download?platform=linux-deb
+sudo dpkg -i 'download?platform=linux-deb'
+sudo apt-get install -f
+cp .nylas/config.cson ~/.nylas/
+
+cp -r .config ~/
+cp -r .ssh ~/
+cp -r .purple ~/
+cp -r .tmux.conf ~/
+cp -r .zshrc ~/
 
