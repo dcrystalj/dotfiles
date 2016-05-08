@@ -50,7 +50,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker)
 
 # User configuration
 
@@ -100,7 +100,9 @@ timer() {sleep $1 && notify $2}
 boot() {`while true; do sleep 10 && killall pulseaduio 2>/dev/null; done` &}
 gall() {gaa && gcam $1}
 zz(){zip -r $1.zip $1}
-update(){yes | sudo apt-get update; yes | sudo apt-get install; yes | sudo apt-get upgrade; }
+update(){sudo apt-get update; sudo apt-get -y install; sudo apt-get -y upgrade; sudo apt-get -y autoremove }
+
+#pomodoro
 #work(){timer 1500 "END of Pomodoro"}
 work(){ {for i in {25..01}; do printf "\r $i"; sleep 60; done}; notify "STOP" "END of Pomodoro"}
 pause(){ {for i in {05..01}; do printf "\r $i"; sleep 60; done}; notify "HEY!" "END of Pause"}
