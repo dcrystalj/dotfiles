@@ -8,10 +8,16 @@ sudo apt-get -y install vim
 sudo apt-get -y install powerline
 sudo apt-get -y install arp-scan
 sudo apt-get -y install mpv
+sudo apt-get -y install tmux
 sudo apt-get -y install pidgin
+sudo apt-get -y install ack-grep
+sudo apt-get -y install python3-pip
+sudo apt-get -y install chromium-browser
+
 
 #git
 git config --global user.name "dcrystalj"
+git config --global user.email "dcrystalj@gmail.com"
 git config --global push.default simple
 
 ####DOCKER
@@ -27,11 +33,11 @@ sudo apt-get purge unity-scope-audacious unity-scope-chromiumbookmarks unity-sco
 
 #bing wallpaper
 sudo cp bing-wallpapers/changer-cron /etc/cron.hourly/changer
+#TODO crontab, /opt/session
 
 #powerline fonts
 #mkdir ~/git && cd ~/git && git clone https://github.com/powerline/fonts
 #~/git/fonts/install.sh
-
 
 
 
@@ -71,6 +77,32 @@ sudo dpkg -i 'download?platform=linux-deb'
 sudo apt-get install -f
 cp .nylas/config.cson ~/.nylas/
 
+
+#youtube player
+me=`whoami`
+echo "@reboot DISPLAY=:0 /usr/bin/python3 /home/$me/git/youtube-mpv/ytdl-server.py3 &" >> /var/spool/cron/crontabs/$me
+cd ~/git && git clone https://github.com/agiz/youtube-mpv
+pip3 install youtube_dl
+
+#pidgin plugins
+
+	#skype
+	 sudo apt-get install libpurple-dev libjson-glib-dev cmake gcc
+    cd ~/git && git clone git://github.com/EionRobb/skype4pidgin.git
+    cd skype4pidgin/skypeweb
+    mkdir build
+    cd build
+    cmake ..
+    cpack
+    sudo dpkg -i skypeweb-1.1.0-Linux.deb
+
+	#facebook
+	sudo echo "deb http://download.opensuse.org/repositories/home:/dequis/xUbuntu_15.10 ./" >> /etc/apt/sources.list.d/dequis.list
+	sudo apt-get update
+	sudo apt-get install -y purple-facebook
+
+
+#all configs
 cp -r .config ~/
 cp -r .ssh ~/
 cp -r .purple ~/
