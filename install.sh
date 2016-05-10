@@ -1,3 +1,7 @@
+#!/bin/bash
+
+me=`whoami`
+
 sudo apt-get -y install diodon   # clipboard
 sudo apt-get -y install git
 sudo apt-get -y install redshift # flux for linux
@@ -12,7 +16,6 @@ sudo apt-get -y install tmux
 sudo apt-get -y install pidgin
 sudo apt-get -y install ack-grep
 sudo apt-get -y install python3-pip
-sudo apt-get -y install chromium-browser
 
 
 #git
@@ -32,8 +35,9 @@ sudo apt-get purge unity-scope-audacious unity-scope-chromiumbookmarks unity-sco
 
 
 #bing wallpaper
-sudo cp bing-wallpapers/changer-cron /etc/cron.hourly/changer
-#TODO crontab, /opt/session
+cd ~/git && git clone https://github.com/dcrystalj/bing-wallpaper.git
+./install.sh
+
 
 #powerline fonts
 #mkdir ~/git && cd ~/git && git clone https://github.com/powerline/fonts
@@ -79,10 +83,10 @@ cp .nylas/config.cson ~/.nylas/
 
 
 #youtube player
-me=`whoami`
 echo "@reboot DISPLAY=:0 /usr/bin/python3 /home/$me/git/youtube-mpv/ytdl-server.py3 &" >> /var/spool/cron/crontabs/$me
 cd ~/git && git clone https://github.com/agiz/youtube-mpv
 pip3 install youtube_dl
+
 
 #pidgin plugins
 
@@ -100,6 +104,11 @@ pip3 install youtube_dl
 	sudo echo "deb http://download.opensuse.org/repositories/home:/dequis/xUbuntu_15.10 ./" >> /etc/apt/sources.list.d/dequis.list
 	sudo apt-get update
 	sudo apt-get install -y purple-facebook
+
+
+#change capslock to ctrl
+sudo echo "@reboot setxkbmap -layout us -option ctrl:nocaps" >> /var/spool/cron/crontabs/root
+sudo echo "0 * * * * setxkbmap -layout us -option ctrl:nocaps" >> /var/spool/cron/crontabs/root
 
 
 #all configs
