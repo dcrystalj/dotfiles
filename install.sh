@@ -2,13 +2,16 @@
 
 me=`whoami`
 
+sudo apt-get -y install 7z       #zip
+sudo apt-get -y install unzip    #unzip
+sudo apt-get -y install zip   #zip
 sudo apt-get -y install diodon   # clipboard
 sudo apt-get -y install git
 sudo apt-get -y install redshift # flux for linux
 sudo apt-get -y install xclip    # allows pipe to xclip
 sudo apt-get -y install gcp      # copy with progress
 sudo apt-get -y install zsh      # copy with progress
-sudo apt-get -y install vim
+#sudo apt-get -y install vim
 sudo apt-get -y install powerline
 sudo apt-get -y install arp-scan
 sudo apt-get -y install mpv
@@ -16,6 +19,9 @@ sudo apt-get -y install tmux
 sudo apt-get -y install pidgin
 sudo apt-get -y install ack-grep
 sudo apt-get -y install python3-pip
+sudo apt-get -y install ipython3
+sudo apt-get -y install shutter
+
 
 
 #git
@@ -35,12 +41,12 @@ sudo apt-get purge unity-scope-audacious unity-scope-chromiumbookmarks unity-sco
 
 
 #bing wallpaper
-cd ~/git && git clone https://github.com/dcrystalj/bing-wallpaper.git
+cd ~/git && git clone https://github.com/dcrystalj/bing-wallpaper.git --depth 1
 ./install.sh
 
 
 #powerline fonts
-#mkdir ~/git && cd ~/git && git clone https://github.com/powerline/fonts
+#mkdir ~/git && cd ~/git && git clone https://github.com/powerline/fonts --depth 1
 #~/git/fonts/install.sh
 
 
@@ -48,7 +54,7 @@ cd ~/git && git clone https://github.com/dcrystalj/bing-wallpaper.git
 #spf13
 curl http://j.mp/spf13-vim3 -L -o - | sh
 echo "let g:airline_powerline_fonts=1" >> ~/.vimrc.before.local
-cd ~/git && git clone https://github.com/vim-airline/vim-airline-themes
+cd ~/git && git clone https://github.com/vim-airline/vim-airline-themes --depth 1
 cp ~/git/vim-airline-themes/* ~/.vim
 echo "let g:airline_theme='dark'" >> ~/.vimrc.local
 cp .vimrc.bundles.local ~/
@@ -57,7 +63,7 @@ vim -c ':PluginInstall'
 
 
 #chromium
-cd ~/git && git clone https://github.com/scheib/chromium-latest-linux
+cd ~/git && git clone https://github.com/scheib/chromium-latest-linux --depth 1
 ~/git/chromium-latest-linux/update-and-run.sh
 
 #sublime
@@ -84,7 +90,7 @@ cp .nylas/config.cson ~/.nylas/
 
 #youtube player
 echo "@reboot DISPLAY=:0 /usr/bin/python3 /home/$me/git/youtube-mpv/ytdl-server.py3 &" >> /var/spool/cron/crontabs/$me
-cd ~/git && git clone https://github.com/agiz/youtube-mpv
+cd ~/git && git clone https://github.com/agiz/youtube-mpv --depth 1
 pip3 install youtube_dl
 
 
@@ -92,7 +98,7 @@ pip3 install youtube_dl
 
 	#skype
 	 sudo apt-get install libpurple-dev libjson-glib-dev cmake gcc
-    cd ~/git && git clone git://github.com/EionRobb/skype4pidgin.git
+    cd ~/git && git clone git://github.com/EionRobb/skype4pidgin.git --depth 1
     cd skype4pidgin/skypeweb
     mkdir build
     cd build
@@ -109,6 +115,53 @@ pip3 install youtube_dl
 #change capslock to ctrl
 sudo echo "@reboot setxkbmap -layout us -option ctrl:nocaps" >> /var/spool/cron/crontabs/root
 sudo echo "0 * * * * setxkbmap -layout us -option ctrl:nocaps" >> /var/spool/cron/crontabs/root
+
+#silentcast => record gif screen
+sudo add-apt-repository ppa:sethj/silentcast && sudo apt-get update && sudo apt-get install silentcast  
+
+#sensors
+sudo apt-get install -y lm-sensors
+yes | sudo sensors-detect
+yes | sudo service kmod start
+
+
+#vim with LUA
+sudo apt-get remove --purge vim vim-runtime vim-gnome vim-tiny vim-common vim-gui-common
+
+sudo apt-get build-dep vim-gnome
+ 
+sudo apt-get install liblua5.1-dev luajit libluajit-5.1 python-dev ruby-dev libperl-dev libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev
+
+sudo rm -rf /usr/local/share/vim
+
+sudo rm /usr/bin/vim
+ 
+sudo mkdir /usr/include/lua5.1/include
+sudo mv /usr/include/lua5.1/*.h /usr/include/lua5.1/include/
+ 
+sudo ln -s /usr/bin/luajit-2.0.0-beta9 /usr/bin/luajit
+ 
+cd ~/git
+git clone https://github.com/vim/vim --depth 1
+cd vim/src
+make distclean
+./configure --with-features=huge \
+            --enable-rubyinterp \
+            --enable-largefile \
+            --disable-netbeans \
+            --enable-pythoninterp \
+            --with-python-config-dir=/usr/lib/python2.7/config \
+            --enable-perlinterp \
+            --enable-luainterp \
+            --with-luajit \
+	    --enable-gui=auto \
+            --enable-fail-if-missing \
+            --with-lua-prefix=/usr/include/lua5.1 \
+            --enable-cscope 
+make 
+sudo make install
+
+sudo ln -s /usr/local/bin/vim /usr/local/bin/vi
 
 
 #all configs
