@@ -89,9 +89,8 @@ cp .nylas/config.cson ~/.nylas/
 
 
 #youtube player
-echo "@reboot DISPLAY=:0 /usr/bin/python3 /home/$me/git/youtube-mpv/ytdl-server.py3 &" >> /var/spool/cron/crontabs/$me
 cd ~/git && git clone https://github.com/agiz/youtube-mpv --depth 1
-pip3 install youtube_dl
+~/git/youtube-mpv/install-ubuntu.sh
 
 
 #pidgin plugins
@@ -107,17 +106,17 @@ pip3 install youtube_dl
     sudo dpkg -i skypeweb-1.1.0-Linux.deb
 
 	#facebook
-	sudo echo "deb http://download.opensuse.org/repositories/home:/dequis/xUbuntu_15.10 ./" >> /etc/apt/sources.list.d/dequis.list
+	sudo echo "deb http://download.opensuse.org/repositories/home:/dequis/xUbuntu_15.10 ./" | sudo tee -a /etc/apt/sources.list.d/dequis.list
 	sudo apt-get update
 	sudo apt-get install -y purple-facebook
 
 
 #change capslock to ctrl
-sudo echo "@reboot setxkbmap -layout us -option ctrl:nocaps" >> /var/spool/cron/crontabs/root
-sudo echo "0 * * * * setxkbmap -layout us -option ctrl:nocaps" >> /var/spool/cron/crontabs/root
+sudo echo "@reboot setxkbmap -layout us -option ctrl:nocaps" | sudo tee -a /var/spool/cron/crontabs/root
+sudo echo "0 * * * * setxkbmap -layout us -option ctrl:nocaps" | sudo tee -a /var/spool/cron/crontabs/root
 
 #silentcast => record gif screen
-sudo add-apt-repository ppa:sethj/silentcast && sudo apt-get update && sudo apt-get install silentcast  
+sudo add-apt-repository ppa:sethj/silentcast && sudo apt-get update && sudo apt-get install silentcast
 
 #sensors
 sudo apt-get install -y lm-sensors
@@ -129,18 +128,18 @@ yes | sudo service kmod start
 sudo apt-get remove --purge vim vim-runtime vim-gnome vim-tiny vim-common vim-gui-common
 
 sudo apt-get build-dep vim-gnome
- 
+
 sudo apt-get install liblua5.1-dev luajit libluajit-5.1 python-dev ruby-dev libperl-dev libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev
 
 sudo rm -rf /usr/local/share/vim
 
 sudo rm /usr/bin/vim
- 
+
 sudo mkdir /usr/include/lua5.1/include
 sudo mv /usr/include/lua5.1/*.h /usr/include/lua5.1/include/
- 
+
 sudo ln -s /usr/bin/luajit-2.0.0-beta9 /usr/bin/luajit
- 
+
 cd ~/git
 git clone https://github.com/vim/vim --depth 1
 cd vim/src
@@ -157,8 +156,8 @@ make distclean
 	    --enable-gui=auto \
             --enable-fail-if-missing \
             --with-lua-prefix=/usr/include/lua5.1 \
-            --enable-cscope 
-make 
+            --enable-cscope
+make
 sudo make install
 
 sudo ln -s /usr/local/bin/vim /usr/local/bin/vi
@@ -170,4 +169,3 @@ cp -r .ssh ~/
 cp -r .purple ~/
 cp -r .tmux.conf ~/
 cp -r .zshrc ~/
-
