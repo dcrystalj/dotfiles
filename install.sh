@@ -169,3 +169,7 @@ cp -r .ssh ~/
 cp -r .purple ~/
 cp -r .tmux.conf ~/
 cp -r .zshrc ~/
+
+
+#move luncher to bottom
+sudo gsettings set com.canonical.Unity.Launcher launcher-position Bottom
