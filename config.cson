@@ -1,78 +1,98 @@
 "*":
+  "accents-ui":
+    accentColor:
+      alpha: 1
+      blue: 42
+      green: 210
+      red: 55
+    hexColor: "#37d22a"
+    useSyntax: false
+  "autocomplete-plus":
+    confirmCompletion: "enter"
+    minimumWordLength: 2
+    useCoreMovementCommands: false
+  "close-tags": {}
   core:
+    autoHideMenuBar: true
     disabledPackages: [
-      "quick-schedule"
-      "composer-templates"
-      "composer-translate"
-      "message-view-on-github"
-      "github-contact-card"
-      "send-later"
-      "link-tracking"
+      "an-color-picker"
+      "webbox-color"
+      "eval-javascript"
+      "language-todotxt"
+      "select-rectangle"
+      "open-on-github"
+      "linter"
+      "linter-jshint"
+      "minimap"
+      "pomodoro"
+      "toggle-markdown-task"
+      "markdown-themeable-pdf"
+      "linter-clang"
+      "git-plus"
+      "pinned-tabs"
+      "atom-bracket-highlight"
+      "atom-brackets-glow"
     ]
-    disabledPackagesInitialized: true
-    workspace:
-      mode: "split"
-      hiddenLocations:
-        MessageListSidebar:
-          id: "MessageListSidebar"
-          Toolbar:
-            id: "MessageListSidebar:Toolbar"
-      interfaceZoom: 1.2
-      systemTray: false
-    reading:
-      markAsReadDelay: 0
-    attachments:
-      downloadPolicy: "on-receive"
+    openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "es6-javascript"
+    ]
     themes: [
-      "ui-light"
-      "ui-dark"
+      "jsartisan-dark-minimalistic-ui"
+      "dracula-theme"
     ]
-  updateIdentity: "75e15d5b-c3e3-4555-94fc-805992b8057e"
-  env: "production"
-  nylas:
-    accounts: [
-      {
-        client_id: "local-4d6909bf-7f5e"
-        server_id: "3fk9o8eqa5h27yjdzi1k06x46"
-        object: "account"
-        account_id: "3fk9o8eqa5h27yjdzi1k06x46"
-        metadata: []
-        name: "Tomaz Tomazic"
-        provider: "custom"
-        email_address: "tomazic@live.com"
-        organization_unit: "folder"
-        label: "tomazic@live.com"
-        aliases: [
-          "Tomaz Tomazic <tomaz.tomazic@live.com>"
-        ]
-        sync_state: "running"
-        id: "3fk9o8eqa5h27yjdzi1k06x46"
-      }
-      {
-        client_id: "local-77da5ae9-e717"
-        server_id: "5lo44jjrky38zdkq1juojpwvn"
-        object: "account"
-        account_id: "5lo44jjrky38zdkq1juojpwvn"
-        metadata: []
-        name: "Crystal Sergeant"
-        provider: "gmail"
-        email_address: "dcrystalj@gmail.com"
-        organization_unit: "label"
-        label: "dcrystalj@gmail.com"
-        aliases: []
-        sync_state: "running"
-        id: "5lo44jjrky38zdkq1juojpwvn"
-      }
-    ]
-    "5lo44jjrky38zdkq1juojpwvn":
-      cursor: "31hohrrjt3pi6hkwm53yfld7e"
-    djnzsli5yoan7tq2046owe1ux:
-      cursor: "72852964wl4blsafldf1kh1ov"
-    "3fk9o8eqa5h27yjdzi1k06x46":
-      cursor: "afjurfq62e081d19iih5ue6cj"
-    "account-3fk9o8eqa5h27yjdzi1k06x46":
-      signature: "Lp,&nbsp;<div>Tomaz</div>"
-    threadCountsValid: true
-    accountsVersion: 10
-    "account-5lo44jjrky38zdkq1juojpwvn":
-      signature: ""
+  editor:
+    autoIndentOnPaste: false
+    backUpBeforeSaving: true
+    fontSize: 17
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "8252ac7e-b5fe-d698-f761-0cb7c4b1ed8d"
+  "gpp-compiler": {}
+  hidpi: {}
+  linter:
+    errorPanelHeight: 50
+  "linter-gcc":
+    gccLintOnTheFly: true
+    gccSuppressWarnings: true
+  "markdown-preview":
+    useGitHubStyle: true
+  minimap:
+    absoluteMode: true
+  pigments: {}
+  "pinned-tabs":
+    animation: true
+    coloredIcons: true
+  pomodoro: {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
+  tabs: {}
+  tasks: {}
+  welcome:
+    showOnStartup: false
+".console.python.text":
+  editor:
+    tabLength: 4
+".diff.source":
+  editor:
+    tabLength: 4
+".gfm.source":
+  editor:
+    tabLength: 4
+".python.text.traceback":
+  editor:
+    tabLength: 4
+".text.todo":
+  editor:
+    tabLength: 4
+".text.todotxt":
+  editor:
+    tabLength: 4

@@ -89,8 +89,13 @@ alias gs='git status'
 alias iii='sudo apt-get install'
 alias uuu='sudo apt-get remove'
 alias db='cd ~/Dropbox'
-alias cw='/etc/cron.hourly/changer'
+alias cw='/etc/cron.hourly/changer.sh'
 alias mouse="dconf write /org/gnome/settings-daemon/peripherals/touchpad/touchpad-enabled true"
+alias atom=atom-beta
+alias apm=apm-beta
+
+c(){unsetopt no_match; python3 -c "print($*)"}
+c
 
 o(){gnome-open $1}
 pdf() {evince $1 &}
@@ -99,12 +104,13 @@ notify() {nsound && sudo notify-send "$1" "$2"}
 timer() {sleep $1 && notify $2}
 boot() {`while true; do sleep 10 && killall pulseaduio 2>/dev/null; done` &}
 gall() {gaa && gcam $1}
+gull() {git add -u && gcmsg $1}
 zz(){zip -r $1.zip $1}
-update(){sudo apt-get update; sudo apt-get -y install; sudo apt-get -y upgrade; sudo apt-get -y autoremove }
-
-#pomodoro
+update(){yes | sudo apt-get update; yes | sudo apt-get install; yes | sudo apt-get upgrade; sudo apt-get autoremove }
 #work(){timer 1500 "END of Pomodoro"}
 work(){ {for i in {25..01}; do printf "\r $i"; sleep 60; done}; notify "STOP" "END of Pomodoro"}
 pause(){ {for i in {05..01}; do printf "\r $i"; sleep 60; done}; notify "HEY!" "END of Pause"}
 # pause(){timer 300 "Start WORKING!"}
 alias mouse-solver="sudo modprobe -r psmouse && sudo modprobe psmouse "
+alias sql='mysql -uroot -proot -D forecast'
+export PAGER="most"

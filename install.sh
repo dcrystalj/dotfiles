@@ -13,14 +13,16 @@ sudo apt-get -y install gcp      # copy with progress
 sudo apt-get -y install zsh      # copy with progress
 #sudo apt-get -y install vim
 sudo apt-get -y install powerline
-sudo apt-get -y install arp-scan
-sudo apt-get -y install mpv
+sudo apt-get -y install arp-scan #hacking tools
+sudo apt-get -y install mpv      #video player
 sudo apt-get -y install tmux
-sudo apt-get -y install pidgin
+sudo apt-get -y install pidgin # chat
 sudo apt-get -y install ack-grep
 sudo apt-get -y install python3-pip
 sudo apt-get -y install ipython3
-sudo apt-get -y install shutter
+sudo apt-get -y install shutter #screenshot manager + easy share / upload
+sudo apt-get -y install most #color man pages
+sudo apt-get -y install qbittorrent
 
 
 
@@ -48,6 +50,10 @@ cd ~/git && git clone https://github.com/dcrystalj/bing-wallpaper.git --depth 1
 #powerline fonts
 #mkdir ~/git && cd ~/git && git clone https://github.com/powerline/fonts --depth 1
 #~/git/fonts/install.sh
+
+#disable/enable notifidations
+sudo add-apt-repository ppa:vlijm/nonotifs
+sudo apt-get update && sudo apt-get install nonotifs
 
 
 
@@ -161,7 +167,14 @@ make
 sudo make install
 
 sudo ln -s /usr/local/bin/vim /usr/local/bin/vi
+sudo ln -s /usr/local/bin/vim /usr/bin/vi
+sudo ln -s /usr/local/bin/vim /usr/bin/vim
 
+#destroy nano
+cd /bin
+sudo mv nano nano_must_die
+sudo ln -s /usr/bin/vim nano
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim
 
 #all configs
 cp -r .config ~/
@@ -173,3 +186,20 @@ cp -r .zshrc ~/
 
 #move luncher to bottom
 sudo gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+
+#disable non-usefull services
+sudo systemctl disable bluetooth.service
+
+#fix touchpad on lenovo yoga 2 pro
+sudo cp 50-synaptics.conf /usr/share/X11/xorg.conf.d/50-synaptics.conf
+
+
+#safety for accident removal with rm -rf
+touch ~/-@ 
+sudo touch /-@ 
+sudo touch /root/-@ 
+
+
+#HOME FOLDER
+mkdir ~/torrents
+
