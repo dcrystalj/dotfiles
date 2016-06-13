@@ -44,7 +44,7 @@
   editor:
     autoIndentOnPaste: false
     backUpBeforeSaving: true
-    fontSize: 17
+    fontSize: 18
     showIndentGuide: true
     showInvisibles: true
     softWrap: true

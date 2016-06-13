@@ -91,7 +91,6 @@ alias uuu='sudo apt-get remove'
 alias db='cd ~/Dropbox'
 alias cw='/etc/cron.hourly/changer.sh'
 alias mouse="dconf write /org/gnome/settings-daemon/peripherals/touchpad/touchpad-enabled true"
-alias atom=atom-beta
 alias apm=apm-beta
 
 c(){unsetopt no_match; python3 -c "print($*)"}
@@ -99,7 +98,7 @@ c
 
 o(){gnome-open $1}
 pdf() {evince $1 &}
-gcp() {sudo gcp -rf $1 $2}
+gcp() {sudo gcp -rf --preserve=ownership $1 $2}
 notify() {nsound && sudo notify-send "$1" "$2"}
 timer() {sleep $1 && notify $2}
 boot() {`while true; do sleep 10 && killall pulseaduio 2>/dev/null; done` &}

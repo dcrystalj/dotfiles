@@ -23,6 +23,7 @@ sudo apt-get -y install ipython3
 sudo apt-get -y install shutter #screenshot manager + easy share / upload
 sudo apt-get -y install most #color man pages
 sudo apt-get -y install qbittorrent
+sudo apt-get -y install unity-tweak-tool
 
 
 
