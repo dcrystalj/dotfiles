@@ -23,11 +23,21 @@ sudo apt-get -y install ipython3
 sudo apt-get -y install shutter #screenshot manager + easy share / upload
 sudo apt-get -y install most #color man pages
 sudo apt-get -y install qbittorrent
+sudo apt-get -y install imagemagick
+sudo apt-get -y install gparted
+sudo apt-get -y install tuptime #control time, reboot ...
+sudo apt-get -y install tig # easy git log
+
+
+#must have tweak tool
+sudo add-apt-repository ppa:tualatrix/ppa
+sudo apt-get update
 sudo apt-get -y install unity-tweak-tool
 
 
 
 #git
+mkdir ~/git
 git config --global user.name "dcrystalj"
 git config --global user.email "dcrystalj@gmail.com"
 git config --global push.default simple
@@ -52,17 +62,13 @@ cd ~/git && git clone https://github.com/dcrystalj/bing-wallpaper.git --depth 1
 #mkdir ~/git && cd ~/git && git clone https://github.com/powerline/fonts --depth 1
 #~/git/fonts/install.sh
 
-#disable/enable notifidations
-sudo add-apt-repository ppa:vlijm/nonotifs
-sudo apt-get update && sudo apt-get install nonotifs
-
 
 
 #spf13
 curl http://j.mp/spf13-vim3 -L -o - | sh
 echo "let g:airline_powerline_fonts=1" >> ~/.vimrc.before.local
 cd ~/git && git clone https://github.com/vim-airline/vim-airline-themes --depth 1
-cp ~/git/vim-airline-themes/* ~/.vim
+cp -r ~/git/vim-airline-themes/* ~/.vim
 echo "let g:airline_theme='dark'" >> ~/.vimrc.local
 cp .vimrc.bundles.local ~/
 cp .vimrc.local ~/
@@ -76,11 +82,11 @@ cd ~/git && git clone https://github.com/scheib/chromium-latest-linux --depth 1
 #sublime
 cd ~/Downloads
 wget https://download.sublimetext.com/sublime-text_build-3103_amd64.deb
-gnome-open sublime-text_build-3103_amd64.deb
+sudo dpkg -i sublime-text_build-3103_amd64.deb
 
 #skype
 wget http://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
-gnome-open skype-ubuntu-precise_4.3.0.37-1_i386.deb
+sudo dpkg -i skype-ubuntu-precise_4.3.0.37-1_i386.deb
 
 #atom
 wget https://atom.io/download/deb
@@ -88,7 +94,7 @@ sudo dpkg -i deb
 sudo apt-get install -f
 cp .atom/config.cson ~/.atom
 
-#nylas
+#nylas mail
 wget https://edgehill.nylas.com/download?platform=linux-deb
 sudo dpkg -i 'download?platform=linux-deb'
 sudo apt-get install -f
@@ -130,6 +136,13 @@ sudo apt-get install -y lm-sensors
 yes | sudo sensors-detect
 yes | sudo service kmod start
 
+
+#gimp
+sudo apt-get install gimp
+#gimp THEME
+cd ~/git/
+git clone https://github.com/doctormo/GimpPs
+cp -r GimpPs/* ~/.gimp-2.8
 
 #vim with LUA
 sudo apt-get remove --purge vim vim-runtime vim-gnome vim-tiny vim-common vim-gui-common
@@ -176,6 +189,28 @@ cd /bin
 sudo mv nano nano_must_die
 sudo ln -s /usr/bin/vim nano
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim
+sudo apt-get install nemo-compare nemo-dropbox nemo-media-columns nemo-pastebin nemo-seahorse nemo-share nemo-emblems nemo-image-converter nemo-audio-tab
+sudo apt-get install nemo-terminal
+#preview
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install gloobus-preview
+sudo apt-get install unoconv gnumeric
+sudo apt-get install nemo-gloobus-sushi
+nemo -q
+#install nemo file manager instead of nautilus
+sudo add-apt-repository ppa:webupd8team/nemo
+sudo apt-get update
+sudo apt-get install nemo nemo-fileroller
+
+#desktop nemo
+gsettings set org.gnome.desktop.background show-desktop-icons false
+#default nemo
+xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+
+#fix search in nautilus
+gsettings set org.gnome.nautilus.preferences enable-interactive-search false
+
 
 #all configs
 cp -r .config ~/
@@ -186,7 +221,7 @@ cp -r .zshrc ~/
 
 
 #move luncher to bottom
-sudo gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+#sudo gsettings set com.canonical.Unity.Launcher launcher-position Bottom
 
 #disable non-usefull services
 sudo systemctl disable bluetooth.service
