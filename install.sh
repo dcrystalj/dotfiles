@@ -5,7 +5,7 @@ me=`whoami`
 sudo apt-get -y install 7z       #zip
 sudo apt-get -y install unzip    #unzip
 sudo apt-get -y install zip   #zip
-sudo apt-get -y install diodon   # clipboard
+#sudo apt-get -y install diodon   # clipboard  moved down
 sudo apt-get -y install git
 sudo apt-get -y install redshift # flux for linux
 sudo apt-get -y install xclip    # allows pipe to xclip
@@ -34,7 +34,11 @@ sudo add-apt-repository ppa:tualatrix/ppa
 sudo apt-get update
 sudo apt-get -y install unity-tweak-tool
 
-
+#clipboard manager 
+sudo apt-add-repository ppa:diodon-team/stable
+sudo apt-get update
+sudo apt-get install diodon
+sudo apt-get install unity-scope-diodon
 
 #git
 mkdir ~/git

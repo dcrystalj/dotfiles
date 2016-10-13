@@ -3,10 +3,10 @@
 <pref version='1' name='/'>
 	<pref name='purple'>
 		<pref name='away'>
-			<pref name='idle_reporting' type='string' value='system'/>
+			<pref name='idle_reporting' type='string' value='none'/>
 			<pref name='away_when_idle' type='bool' value='1'/>
 			<pref name='mins_before_away' type='int' value='5'/>
-			<pref name='auto_reply' type='string' value='awayidle'/>
+			<pref name='auto_reply' type='string' value='never'/>
 		</pref>
 		<pref name='buddies'/>
 		<pref name='contact'>
@@ -263,7 +263,7 @@
 					</pref>
 					<pref name='disable-typing-notification' type='bool' value='0'/>
 				</pref>
-				<pref name='gtk-font-name' type='string' value='Sans 10'/>
+				<pref name='gtk-font-name' type='string' value='Sans 12'/>
 				<pref name='gtk-key-theme-name' type='string' value=''/>
 				<pref name='color'>
 					<pref name='GtkIMHtml::hyperlink-color' type='string' value='#8294FF'/>
@@ -278,8 +278,8 @@
 					<pref name='GtkTreeView::horizontal_separator' type='int' value='0'/>
 				</pref>
 				<pref name='font'>
-					<pref name='*pidgin_conv_entry' type='string' value='Sans 10'/>
-					<pref name='*pidgin_conv_imhtml' type='string' value=''/>
+					<pref name='*pidgin_conv_entry' type='string' value='Sans 12'/>
+					<pref name='*pidgin_conv_imhtml' type='string' value='Sans 13'/>
 					<pref name='*pidgin_request_imhtml' type='string' value=''/>
 					<pref name='*pidgin_notify_imhtml' type='string' value=''/>
 				</pref>
@@ -349,7 +349,6 @@
 		</pref>
 		<pref name='plugins'>
 			<pref name='loaded' type='pathlist'>
-				<item value='/usr/lib/pidgin/convcolors.so'/>
 				<item value='/usr/lib/pidgin/history.so'/>
 				<item value='/usr/lib/purple-2/pidgin-libnotify.so'/>
 				<item value='/usr/lib/pidgin/notify.so'/>
@@ -362,7 +361,7 @@
 			</pref>
 		</pref>
 		<pref name='filelocations'>
-			<pref name='last_save_folder' type='path' value='/home/dcrystalj/Desktop'/>
+			<pref name='last_save_folder' type='path' value='/home/dcrystalj/Dropbox/danijel'/>
 			<pref name='last_open_folder' type='path' value='/home/dcrystalj/Desktop'/>
 			<pref name='last_icon_folder' type='path' value=''/>
 		</pref>
@@ -427,7 +426,7 @@
 			</pref>
 			<pref name='theme' type='string' value=''/>
 			<pref name='conv_focus' type='bool' value='1'/>
-			<pref name='mute' type='bool' value='0'/>
+			<pref name='mute' type='bool' value='1'/>
 			<pref name='command' type='path' value=''/>
 			<pref name='method' type='string' value='automatic'/>
 			<pref name='volume' type='int' value='50'/>
@@ -448,10 +447,10 @@
 			<pref name='list_visible' type='bool' value='0'/>
 			<pref name='list_maximized' type='bool' value='0'/>
 			<pref name='sort_type' type='string' value='alphabetical'/>
-			<pref name='x' type='int' value='1600'/>
-			<pref name='y' type='int' value='38'/>
-			<pref name='width' type='int' value='1596'/>
-			<pref name='height' type='int' value='1625'/>
+			<pref name='x' type='int' value='2517'/>
+			<pref name='y' type='int' value='1067'/>
+			<pref name='width' type='int' value='495'/>
+			<pref name='height' type='int' value='532'/>
 			<pref name='theme' type='string' value=''/>
 		</pref>
 		<pref name='conversations'>
@@ -463,7 +462,7 @@
 			<pref name='spellcheck' type='bool' value='1'/>
 			<pref name='show_incoming_formatting' type='bool' value='1'/>
 			<pref name='resize_custom_smileys' type='bool' value='1'/>
-			<pref name='custom_smileys_size' type='int' value='96'/>
+			<pref name='custom_smileys_size' type='int' value='102'/>
 			<pref name='minimum_entry_lines' type='int' value='2'/>
 			<pref name='show_timestamps' type='bool' value='1'/>
 			<pref name='show_formatting_toolbar' type='bool' value='0'/>
@@ -478,17 +477,17 @@
 			<pref name='scrollback_lines' type='int' value='4000'/>
 			<pref name='chat'>
 				<pref name='entry_height' type='int' value='54'/>
-				<pref name='userlist_width' type='int' value='250'/>
+				<pref name='userlist_width' type='int' value='322'/>
 				<pref name='x' type='int' value='0'/>
 				<pref name='y' type='int' value='0'/>
 				<pref name='width' type='int' value='340'/>
 				<pref name='height' type='int' value='390'/>
 			</pref>
 			<pref name='im'>
-				<pref name='x' type='int' value='0'/>
-				<pref name='y' type='int' value='36'/>
+				<pref name='x' type='int' value='2328'/>
+				<pref name='y' type='int' value='300'/>
 				<pref name='width' type='int' value='1596'/>
-				<pref name='height' type='int' value='1248'/>
+				<pref name='height' type='int' value='1036'/>
 				<pref name='animate_buddy_icons' type='bool' value='1'/>
 				<pref name='entry_height' type='int' value='54'/>
 				<pref name='show_buddy_icons' type='bool' value='0'/>
@@ -518,7 +517,7 @@
 		</pref>
 		<pref name='docklet'>
 			<pref name='blink' type='bool' value='0'/>
-			<pref name='show' type='string' value='never'/>
+			<pref name='show' type='string' value='pending'/>
 			<pref name='gtk'>
 				<pref name='embedded' type='bool' value='0'/>
 			</pref>

@@ -7,13 +7,19 @@
       red: 55
     hexColor: "#37d22a"
     useSyntax: false
+  "autocomplete-bibtex": {}
   "autocomplete-plus":
     confirmCompletion: "enter"
     minimumWordLength: 2
     useCoreMovementCommands: false
+  "bracket-matcher":
+    autocompleteBrackets: false
+    autocompleteSmartQuotes: false
   "close-tags": {}
+  "color-picker": {}
   core:
     autoHideMenuBar: true
+    closeEmptyWindows: false
     disabledPackages: [
       "an-color-picker"
       "webbox-color"
@@ -24,7 +30,6 @@
       "linter"
       "linter-jshint"
       "minimap"
-      "pomodoro"
       "toggle-markdown-task"
       "markdown-themeable-pdf"
       "linter-clang"
@@ -32,11 +37,32 @@
       "pinned-tabs"
       "atom-bracket-highlight"
       "atom-brackets-glow"
+      "gpp-compiler"
+      "lucid-tabs"
+      "pane-manager"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      ".bbl"
+      ".aux"
+      ".toc"
+      ".fls"
+      ".zip"
+      ".pdf"
+      ".fdb_latexmk"
+      ".aux"
+      ".log"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "es6-javascript"
     ]
+    telemetryConsent: "no"
     themes: [
       "jsartisan-dark-minimalistic-ui"
       "dracula-theme"
@@ -44,7 +70,7 @@
   editor:
     autoIndentOnPaste: false
     backUpBeforeSaving: true
-    fontSize: 18
+    fontSize: 13
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
@@ -52,8 +78,12 @@
     tabType: "soft"
   "exception-reporting":
     userId: "8252ac7e-b5fe-d698-f761-0cb7c4b1ed8d"
+  gist: {}
   "gpp-compiler": {}
   hidpi: {}
+  latex:
+    openResultAfterBuild: false
+    viewerPath: "/usr/bin/evince"
   linter:
     errorPanelHeight: 50
   "linter-gcc":
@@ -76,8 +106,11 @@
     syncHorizontalScroll: true
   tabs: {}
   tasks: {}
+  "tree-view":
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false
+  wordcount: {}
 ".console.python.text":
   editor:
     tabLength: 4
@@ -85,6 +118,9 @@
   editor:
     tabLength: 4
 ".gfm.source":
+  editor:
+    tabLength: 4
+".html.text.vue":
   editor:
     tabLength: 4
 ".python.text.traceback":

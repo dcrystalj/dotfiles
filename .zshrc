@@ -92,6 +92,7 @@ alias db='cd ~/Dropbox'
 alias cw='/etc/cron.hourly/changer.sh'
 alias mouse="dconf write /org/gnome/settings-daemon/peripherals/touchpad/touchpad-enabled true"
 alias apm=apm-beta
+alias cdmag='cd /home/dcrystalj/git/forecast/docs/magistrska/predloga'
 
 c(){unsetopt no_match; python3 -c "print($*)"}
 c
@@ -109,7 +110,14 @@ update(){yes | sudo apt-get update; yes | sudo apt-get install; yes | sudo apt-g
 #work(){timer 1500 "END of Pomodoro"}
 work(){ {for i in {25..01}; do printf "\r $i"; sleep 60; done}; notify "STOP" "END of Pomodoro"}
 pause(){ {for i in {05..01}; do printf "\r $i"; sleep 60; done}; notify "HEY!" "END of Pause"}
+youtube-dl-mp3(){youtube-dl --extract-audio --audio-format mp3 $1}
+mag(){bibtex magistrska_naloga; pdflatex magistrska_naloga.tex}
+svg2pdf(){inkscape -D -z --file=$1.svg --export-pdf=$1.pdf --export-area-drawing}
+basename(){echo ${1%\.*}}
+rvnc(){/opt/VNC ./vncconnection.vnc }
+
 # pause(){timer 300 "Start WORKING!"}
 alias mouse-solver="sudo modprobe -r psmouse && sudo modprobe psmouse "
 alias sql='mysql -uroot -proot -D forecast'
 export PAGER="most"
+export FLASK_APP=./server.py
