@@ -27,18 +27,12 @@ sudo apt-get -y install imagemagick
 sudo apt-get -y install gparted
 sudo apt-get -y install tuptime #control time, reboot ...
 sudo apt-get -y install tig # easy git log
+sudo apt-get -y install build-essentials # easy git log
 
 
 #must have tweak tool
-sudo add-apt-repository ppa:tualatrix/ppa
-sudo apt-get update
-sudo apt-get -y install unity-tweak-tool
 
-#clipboard manager 
-sudo apt-add-repository ppa:diodon-team/stable
-sudo apt-get update
-sudo apt-get install diodon
-sudo apt-get install unity-scope-diodon
+#clipboard manager
 
 #git
 mkdir ~/git
@@ -132,8 +126,6 @@ cd ~/git && git clone https://github.com/agiz/youtube-mpv --depth 1
 sudo echo "@reboot setxkbmap -layout us -option ctrl:nocaps" | sudo tee -a /var/spool/cron/crontabs/root
 sudo echo "0 * * * * setxkbmap -layout us -option ctrl:nocaps" | sudo tee -a /var/spool/cron/crontabs/root
 
-#silentcast => record gif screen
-sudo add-apt-repository ppa:sethj/silentcast && sudo apt-get update && sudo apt-get install silentcast
 
 #sensors
 sudo apt-get install -y lm-sensors
@@ -235,11 +227,10 @@ sudo cp 50-synaptics.conf /usr/share/X11/xorg.conf.d/50-synaptics.conf
 
 
 #safety for accident removal with rm -rf
-touch ~/-@ 
-sudo touch /-@ 
-sudo touch /root/-@ 
+touch ~/-@
+sudo touch /-@
+sudo touch /root/-@
 
 
 #HOME FOLDER
 mkdir ~/torrents
-
