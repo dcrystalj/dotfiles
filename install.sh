@@ -28,17 +28,22 @@ sudo apt-get -y install gparted
 sudo apt-get -y install tuptime #control time, reboot ...
 sudo apt-get -y install tig # easy git log
 
+#neofetch - show system status
+sudo add-apt-repository ppa:dawidd0811/neofetch
+sudo apt-get update
+sudo apt-get -y install neofetch
 
 #must have tweak tool
 sudo add-apt-repository ppa:tualatrix/ppa
 sudo apt-get update
 sudo apt-get -y install unity-tweak-tool
 
-#clipboard manager 
-sudo apt-add-repository ppa:diodon-team/stable
-sudo apt-get update
-sudo apt-get install diodon
-sudo apt-get install unity-scope-diodon
+#clipboard manager
+#sudo apt-add-repository ppa:diodon-team/stable
+#sudo apt-get update
+#sudo apt-get -y install diodon
+#sudo apt-get -y install unity-scope-diodon
+sudo apt-get -y install glipper
 
 #git
 mkdir ~/git
@@ -69,6 +74,7 @@ cd ~/git && git clone https://github.com/dcrystalj/bing-wallpaper.git --depth 1
 
 
 #spf13
+sudo apt-get install curl
 curl http://j.mp/spf13-vim3 -L -o - | sh
 echo "let g:airline_powerline_fonts=1" >> ~/.vimrc.before.local
 cd ~/git && git clone https://github.com/vim-airline/vim-airline-themes --depth 1
@@ -192,7 +198,9 @@ sudo ln -s /usr/local/bin/vim /usr/bin/vim
 cd /bin
 sudo mv nano nano_must_die
 sudo ln -s /usr/bin/vim nano
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
+
+#FILE EXPLORER
 sudo apt-get install nemo-compare nemo-dropbox nemo-media-columns nemo-pastebin nemo-seahorse nemo-share nemo-emblems nemo-image-converter nemo-audio-tab
 sudo apt-get install nemo-terminal
 #preview
@@ -235,11 +243,10 @@ sudo cp 50-synaptics.conf /usr/share/X11/xorg.conf.d/50-synaptics.conf
 
 
 #safety for accident removal with rm -rf
-touch ~/-@ 
-sudo touch /-@ 
-sudo touch /root/-@ 
+touch ~/-@
+sudo touch /-@
+sudo touch /root/-@
 
 
 #HOME FOLDER
 mkdir ~/torrents
-
