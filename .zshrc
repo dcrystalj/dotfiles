@@ -50,11 +50,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker)
+plugins=(git docker vagrant dircycle pip npm sudo fasd laravel vscode dropbox mysql-colorize enhancd zsh-sudo fast-syntax-highlighting zsh-tmux-simple)
+
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -93,6 +94,8 @@ alias cw='/etc/cron.hourly/changer.sh'
 alias mouse="dconf write /org/gnome/settings-daemon/peripherals/touchpad/touchpad-enabled true"
 alias apm=apm-beta
 alias cdmag='cd /home/dcrystalj/git/forecast/docs/magistrska/predloga'
+alias gc='git checkout'
+alias grhh='git reset --hard HEAD~1'
 
 c(){unsetopt no_match; python3 -c "print($*)"}
 c
@@ -114,10 +117,22 @@ youtube-dl-mp3(){youtube-dl --extract-audio --audio-format mp3 $1}
 mag(){bibtex magistrska_naloga; pdflatex magistrska_naloga.tex}
 svg2pdf(){inkscape -D -z --file=$1.svg --export-pdf=$1.pdf --export-area-drawing}
 basename(){echo ${1%\.*}}
-rvnc(){/opt/VNC ./vncconnection.vnc }
-
+rvnc(){/opt/VNC ~/vncconnection.vnc }
+fixwifi(){ sudo rmmod ideapad_laptop && sudo service network-manager restart }
 # pause(){timer 300 "Start WORKING!"}
 alias mouse-solver="sudo modprobe -r psmouse && sudo modprobe psmouse "
 alias sql='mysql -uroot -proot -D forecast'
-export PAGER="most"
+export PAGER="less"
 export FLASK_APP=./server.py
+alias mntserver='sshfs -o idmap=user dcrystalj@server:/media /mnt/server && sshfs -o idmap=user dcrystalj@server:/home/dcrystalj /mnt/server-home && cd /mnt'
+alias p='psql -h localhost -U postgres -d orderbook'
+
+#xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Noise Cancellation" 20 20
+#export PAGER=pager
+export PATH=~/.local/bin/:$PATH # make vs-code work
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
