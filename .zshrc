@@ -126,6 +126,7 @@ export PAGER="less"
 export FLASK_APP=./server.py
 alias mntserver='sshfs -o idmap=user dcrystalj@server:/media /mnt/server && sshfs -o idmap=user dcrystalj@server:/home/dcrystalj /mnt/server-home && cd /mnt'
 alias p='psql -h localhost -U postgres -d orderbook'
+alias touchpad='sudo modprobe -r psmouse && sudo modprobe psmouse'
 
 #xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Noise Cancellation" 20 20
 #export PAGER=pager
@@ -136,3 +137,12 @@ export PATH=~/.local/bin/:$PATH # make vs-code work
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+##### java
+alias bugs='findbugs-algs4'
+alias pmd='pmd-algs4'
+alias style='checkstyle-coursera'
+alias javac='javac-algs4'
+alias java='java-algs4'
+alias bp='echo "bugs pmd checkstyle"; bugs *.class && pmd . && style *.java'
+
