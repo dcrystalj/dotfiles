@@ -50,7 +50,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker vagrant dircycle pip npm sudo fasd laravel vscode dropbox mysql-colorize enhancd zsh-sudo fast-syntax-highlighting zsh-tmux-simple)
+plugins=(git docker vagrant dircycle pip npm sudo fasd vscode)
 
 
 # User configuration
@@ -96,6 +96,10 @@ alias apm=apm-beta
 alias cdmag='cd /home/dcrystalj/git/forecast/docs/magistrska/predloga'
 alias gc='git checkout'
 alias grhh='git reset --hard HEAD~1'
+alias update-vscode="bash /home/dcrystalj/git/vscode-updater/update.sh"
+
+alias tv-disable='sudo teamviewer daemon disable'
+alias tv-enable='sudo teamviewer daemon enable'
 
 c(){unsetopt no_match; python3 -c "print($*)"}
 c
@@ -107,6 +111,7 @@ notify() {nsound && sudo notify-send "$1" "$2"}
 timer() {sleep $1 && notify $2}
 boot() {`while true; do sleep 10 && killall pulseaduio 2>/dev/null; done` &}
 gall() {gaa && gcam $1}
+gcae() {git commit --no-edit --amend}
 gull() {git add -u && gcmsg $1}
 zz(){zip -r $1.zip $1}
 update(){yes | sudo apt-get update; yes | sudo apt-get install; yes | sudo apt-get upgrade; sudo apt-get autoremove }
@@ -127,6 +132,7 @@ export FLASK_APP=./server.py
 alias mntserver='sshfs -o idmap=user dcrystalj@server:/media /mnt/server && sshfs -o idmap=user dcrystalj@server:/home/dcrystalj /mnt/server-home && cd /mnt'
 alias p='psql -h localhost -U postgres -d orderbook'
 alias touchpad='sudo modprobe -r psmouse && sudo modprobe psmouse'
+alias ip="ip -c"
 
 #xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Noise Cancellation" 20 20
 #export PAGER=pager
@@ -138,6 +144,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
 ##### java
 alias bugs='findbugs-algs4'
 alias pmd='pmd-algs4'
@@ -145,4 +152,16 @@ alias style='checkstyle-coursera'
 alias javac='javac-algs4'
 alias java='java-algs4'
 alias bp='echo "bugs pmd checkstyle"; bugs *.class && pmd . && style *.java'
+alias fixqbit='export QT_SCALE_FACTOR=1'
 
+setxkbmap -option ctrl:nocaps
+xmodmap -e "keycode 94 = grave asciitilde"
+#echo fs.inotify.max_user_watches=2048000 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/bin:$(getconf PATH):$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/dcrystalj/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/dcrystalj/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/dcrystalj/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/dcrystalj/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
