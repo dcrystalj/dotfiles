@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/dcrystalj/.oh-my-zsh
+  export ZSH=/home/tom/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -93,10 +93,10 @@ alias db='cd ~/Dropbox'
 alias cw='/etc/cron.hourly/changer.sh'
 alias mouse="dconf write /org/gnome/settings-daemon/peripherals/touchpad/touchpad-enabled true"
 alias apm=apm-beta
-alias cdmag='cd /home/dcrystalj/git/forecast/docs/magistrska/predloga'
+alias cdmag='cd /home/tom/git/forecast/docs/magistrska/predloga'
 alias gc='git checkout'
 alias grhh='git reset --hard HEAD~1'
-alias update-vscode="bash /home/dcrystalj/git/vscode-updater/update.sh"
+alias update-vscode="bash /home/tom/git/vscode-updater/update.sh"
 
 alias tv-disable='sudo teamviewer daemon disable'
 alias tv-enable='sudo teamviewer daemon enable'
@@ -129,7 +129,7 @@ alias mouse-solver="sudo modprobe -r psmouse && sudo modprobe psmouse "
 alias sql='mysql -uroot -proot -D forecast'
 export PAGER="less"
 export FLASK_APP=./server.py
-alias mntserver='sshfs -o idmap=user dcrystalj@server:/media /mnt/server && sshfs -o idmap=user dcrystalj@server:/home/dcrystalj /mnt/server-home && cd /mnt'
+alias mntserver='sshfs -o idmap=user tom@server:/media /mnt/server && sshfs -o idmap=user tom@server:/home/tom /mnt/server-home && cd /mnt'
 alias p='psql -h localhost -U postgres -d orderbook'
 alias touchpad='sudo modprobe -r psmouse && sudo modprobe psmouse'
 alias ip="ip -c"
@@ -145,23 +145,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-##### java
-alias bugs='findbugs-algs4'
-alias pmd='pmd-algs4'
-alias style='checkstyle-coursera'
-alias javac='javac-algs4'
-alias java='java-algs4'
-alias bp='echo "bugs pmd checkstyle"; bugs *.class && pmd . && style *.java'
 alias fixqbit='export QT_SCALE_FACTOR=1'
 
-setxkbmap -option ctrl:nocaps
-xmodmap -e "keycode 94 = grave asciitilde"
+
+export DISPLAY=localhost:0.0
+
 #echo fs.inotify.max_user_watches=2048000 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/bin:$(getconf PATH):$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/dcrystalj/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/dcrystalj/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/tom/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/tom/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/dcrystalj/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/dcrystalj/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/tom/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/tom/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
