@@ -123,7 +123,7 @@ mag(){bibtex magistrska_naloga; pdflatex magistrska_naloga.tex}
 svg2pdf(){inkscape -D -z --file=$1.svg --export-pdf=$1.pdf --export-area-drawing}
 basename(){echo ${1%\.*}}
 rvnc(){/opt/VNC ~/vncconnection.vnc }
-fixwifi(){ sudo rmmod ideapad_laptop && sudo service network-manager restart }
+uplink-dir(){ {for f in "${@: 1:-1}"; do uplink cp "$f" "${@: -1}"; done }}
 # pause(){timer 300 "Start WORKING!"}
 alias mouse-solver="sudo modprobe -r psmouse && sudo modprobe psmouse "
 alias sql='mysql -uroot -proot -D forecast'
@@ -146,6 +146,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 alias fixqbit='export QT_SCALE_FACTOR=1'
+alias price="python3 /home/tom/git/priceTracker/priceTracker.py"
 
 
 export DISPLAY=localhost:0.0
@@ -159,3 +160,5 @@ if [ -f '/home/tom/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/tom
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/tom/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/tom/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/home/tom/.local/share/solana/install/active_release/bin:$PATH"
+source $HOME/.cargo/env

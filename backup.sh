@@ -1,7 +1,8 @@
 #! /bin/sh
-BDIR=/home/dcrystalj/git/dotfiles/
+BDIR="${1:-/home/dcrystalj/git/dotfiles/}"
 
-cp /etc/sudoers .
+cp /etc/sudoers ./sudoers
+cp ~/.config/youtube-dl/config $BDIR.config/youtube-dl/config
 cp ~/.config/mpv/mpv.conf $BDIR.config/mpv/mpv.conf
 cp ~/.vimrc.local $BDIR
 cp ~/.zshrc $BDIR

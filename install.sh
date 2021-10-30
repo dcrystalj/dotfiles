@@ -90,6 +90,8 @@ yes | sudo sensors-detect
 yes | sudo service kmod start
 
 #all configs
+cp -r .config/youtube-dl ~/.config
+cp -r .config/mpv ~/.config
 cp -r .tmux.conf ~/
 cp -r .zshrc ~/
 
